@@ -6,8 +6,8 @@ package com.mycompany.stepsmahjong;
  * @author Blend Mustafa
  */
 public abstract class Tile {
-    private String suit;
-    private int rank;
+    protected String suit;
+    protected int rank;
     
     public Tile(String suit, int rank) {
         this.suit = suit;

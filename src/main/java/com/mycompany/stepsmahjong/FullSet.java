@@ -10,7 +10,7 @@ import java.util.Collections;
  *
  * @author Blend Mustafa
  */
-public class FullSet {
+public class FullSet extends GroupOfTiles{
     private final ArrayList<RiichiMahjongTile> tiles;
     private final int numOfEachTile = 4; //there are 4 of each tile
     
@@ -25,6 +25,10 @@ public class FullSet {
             for (RiichiMahjongTile.Suit suit : RiichiMahjongTile.manPinSou){
                 for (RiichiMahjongTile.Rank rank : RiichiMahjongTile.numbers){
                     RiichiMahjongTile tile = new RiichiMahjongTile(suit, rank);
+                    //Makes it so that one of the four FIVES for each suit is red
+                    if (i == 1 && rank == RiichiMahjongTile.Rank.FIVE){
+                        tile.setIsRedFive(true);
+                    }
                     getTiles().add(tile);
                 }
             }
@@ -43,10 +47,6 @@ public class FullSet {
                 }
             }
         }
-    }
-    
-    public void shuffle(){
-        Collections.shuffle(tiles);
     }
 
     public ArrayList<RiichiMahjongTile> getTiles() {
